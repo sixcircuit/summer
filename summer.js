@@ -15,7 +15,7 @@ function extract_line(line){
 
     var numbers = line.match(matcher);
 
-    _.p("extract_line.matches: ", numbers);
+    // _.p("extract_line.matches: ", numbers);
 
     numbers = _.map(numbers, function(n){ return(_.n(n)); });
 
