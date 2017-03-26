@@ -6,6 +6,8 @@ function extract_line(line){
 
     line = _.replace(line, ",", "");
 
+    line = line.replace(/\(.*\)/g);
+
     // var regex = "(?=.)([+-]?([0-9]*)(\.([0-9]+))?)";
     // var regex = "-?(([0-9]+.[0-9]*)|([0-9]*.[0-9]+)|([0-9]+))"
     // var regex = "-?([0-9]+\.[0-9]*|[0-9]+|\.[0-9]+)"
@@ -30,7 +32,7 @@ function extract(text){
     return(_.flatten(_.map(lines, extract_line)));
 }
 
-function sum(text){ return _.round(_.sum(extract(text)), 2); }
+function sum(text){ return _.sum(extract(text)); }
 
 exports.extract = extract;
 exports.sum = sum;

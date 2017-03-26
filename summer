@@ -2,6 +2,8 @@
 
 var summer = require('./summer.js');
 
+var _ = require('dry-underscore');
+
 process.stdin.resume();
 process.stdin.setEncoding('utf8');
 
@@ -11,6 +13,6 @@ process.stdin.on('data', function(chunk) { data += chunk; });
 process.stdin.on('end', function() {
     process.stdout.write(data);
     var sum = summer.sum(data);
-    process.stdout.write("\n" + sum + "\n");
-    process.stdin.end();
+    sum = _.round(sum, 2);
+    process.stdout.write(sum + "\n");
 });
